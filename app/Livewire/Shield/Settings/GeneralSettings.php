@@ -58,7 +58,7 @@ class GeneralSettings extends Component
         ]);
         $this->cleanupOldPreview();
     }
-    
+
     public function updatedNewFavicon()
     {
         $this->validate([
@@ -128,7 +128,7 @@ class GeneralSettings extends Component
             session()->flash('error', 'Error saving settings: ' . $e->getMessage());
         }
     }
-    
+
 
     public function render()
     {
