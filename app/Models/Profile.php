@@ -19,28 +19,26 @@ class Profile extends Model
         'contact_email',
     ];
 
-    // Relationship with User
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Generate slug before saving
+        static::creating(function ($profile) {
+            if (empty($profile->slug)) {
+                $profile->slug = Str::slug($profile->title . '-' . Str::random(6));
+            }
+        });
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Generate unique slug before saving
-    protected static function boot()
+    // Get profile by slug
+    public function scopeBySlug($query, $slug)
     {
-        parent::boot();
-        
-        static::creating(function ($profile) {
-            if (empty($profile->slug)) {
-                $profile->slug = Str::slug($profile->title);
-            }
-            
-            $originalSlug = $profile->slug;
-            $count = 1;
-
-            while (static::where('slug', $profile->slug)->exists()) {
-                $profile->slug = $originalSlug . '-' . $count++;
-            }
-        });
+        return $query->where('slug', $slug);
     }
 }

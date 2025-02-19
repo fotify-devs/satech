@@ -133,6 +133,10 @@ export default {
     variants: {
         extend: {},
     },
+    display: ['responsive', 'group-hover'],
+    visibility: ['responsive'],
+    margin: ['responsive'],
+    padding: ['responsive'],
 
     plugins: [forms, typography],
 };

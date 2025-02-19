@@ -25,7 +25,7 @@
         });
     }
 }"
-    class="relative font-sans">
+    class="relative font-sans w-screen h-full">
 
 <!-- Top Bar with enhanced gradient -->
 <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 py-3 transition-all duration-300">
@@ -97,16 +97,16 @@
 </div>
 
     <!-- Main Navigation with glass effect -->
-    <nav 
-        :class="{ 
+    <nav
+        :class="{
             'fixed top-0 w-full transform translate-y-0 transition-transform duration-300 backdrop-blur-lg bg-white/90 dark:bg-gray-900/90': isSticky,
-            'bg-white dark:bg-gray-900': !isSticky 
+            'bg-white dark:bg-gray-900': !isSticky
         }"
         class="border-b border-gray-100 dark:border-gray-800 z-50 transition-all duration-300">
         <div class="max-w-7xl mx-auto">
             <div class="relative">
                 <!-- Enhanced curved edge with gradient -->
-                <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900" 
+                <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900"
                      style="clip-path: polygon(0 0, 100% 0, 100% 85%, 85% 100%, 0 100%);"></div>
 
                 <!-- Navigation Content -->
@@ -187,7 +187,7 @@
 
             <div class="flex items-center justify-between p-4 border-b dark:border-gray-800">
                 <span class="text-xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Menu</span>
-                <button @click="isSideMenuOpen = false" 
+                <button @click="isSideMenuOpen = false"
                         class="p-2 rounded-lg text-gray-500 hover:text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-200">
                     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -198,7 +198,7 @@
             <!-- Mobile Navigation Links -->
             <nav class="px-4 py-4 space-y-1">
                 @foreach(['Home', 'Academic', 'Admissions', 'Programs', 'Faculty', 'Research', 'Campus Life'] as $item)
-                    <a href="#" 
+                    <a href="#"
                        class="block px-4 py-3 text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 rounded-lg transition-colors duration-200 hover:bg-blue-50 dark:hover:bg-gray-800">
                         {{ $item }}
                     </a>

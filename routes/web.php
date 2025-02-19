@@ -42,3 +42,20 @@ Route::middleware(['auth:sanctum', 'verified', 'admin'])
             Route::get('/general', [SettingsController::class, 'general'])->name('general');
         });
     });
+
+
+
+    // routes/web.php (add these routes)
+Route::middleware(['auth:sanctum'])->group(function () {
+    Route::get('/profile/create', function () {
+        return view('shield.create-profile');
+    })->name('profile.create');
+
+    Route::get('/profile/{profile}/edit', function (App\Models\InstructorProfile $profile) {
+        return view('shield.edit-profile', ['profile' => $profile]);
+    })->name('profile.edit');
+});
+
+Route::get('/profile/{slug}', function ($slug) {
+    return view('shield.show-profile', ['slug' => $slug]);
+})->name('profile.show');

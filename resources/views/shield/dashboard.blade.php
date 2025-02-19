@@ -1,6 +1,7 @@
 @extends('shield.layouts.app')
 
 @section('content')
+
     <div class=" mx-[30px] min-h-[calc(100vh-195px)] mb-[30px] ssm:mt-[30px] mt-[15px]">
 
 
@@ -1335,7 +1336,7 @@
 <script>
    // Get the current year
    const currentYear = new Date().getFullYear();
-   
+
    // Update the content of the element with the class 'current-year'
    document.querySelector('.current-year').textContent = currentYear;
 </script>
