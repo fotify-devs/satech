@@ -27,13 +27,12 @@
         <div class="flex items-center ms-auto py-[15px] sm:gap-x-[25px] max-sm:gap-x-[15px] gap-y-[15px] relative">
 
             <div class="relative">
-                <button type="button"
-                    class="transition-all theme-dropdown-trigger text-[20px] text-light dark:text-subtitle-dark [&.close>.uil-search]:hidden [&.close>.uil-multiply]:block">
-                    <i class="uil uil-search "></i>
-                    <i class="hidden uil uil-multiply "></i>
-                </button>
-                <input type="search" placeholder="search here" id="searchInput" name="search"
-                    class="theme-dropdown absolute end-0 transition-[opacity,margin] duration [&.visible]:opacity-100 [&.visible]:block opacity-0 hidden min-w-[15rem] mt-2 dark:bg-box-dark-down p-1.5 h-[48px] px-[20px] dark:shadow-none border-1 border-regular dark:border-box-dark-up rounded-6 capitalize bg-white text-body dark:text-title-dark placeholder:text-body dark:placeholder:text-subtitle-dark text-ellipsis outline-none search-close-icon:appearance-none search-close-icon:w-[20px] search-close-icon:h-[23px] search-close-icon:bg-[url(images/svg/x.svg)] search-close-icon:cursor-pointer">
+                <a href="{{ route('home') }}" target="_blank" rel="noopener noreferrer">
+                    <button
+                        class="border border-teal-500 bg-teal-500 text-white rounded-md px-2 py-1 text-sm m-2 transition duration-500 ease select-none hover:bg-teal-600 focus:outline-none focus:shadow-outline">
+                        Front-End
+                    </button>
+                </a>                
             </div>
 
             <button type="button"
