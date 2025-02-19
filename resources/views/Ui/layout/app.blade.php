@@ -16,6 +16,7 @@
 
         <!-- Styles -->
         @livewireStyles
+        @notifyCss
     </head>
     <body class="font-sans antialiased font-nunito text-base text-black dark:text-white dark:bg-slate-900">
         <x-banner />
@@ -41,5 +42,6 @@
     <!-- Include the Livewire Footer -->
     @livewire('ui.footer')
         @livewireScripts
+        @notifyJs
     </body>
 </html>

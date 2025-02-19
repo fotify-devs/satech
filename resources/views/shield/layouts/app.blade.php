@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     @livewireStyles
+    @notifyCss
+
     <!-- inject:css-->
     <link rel="stylesheet" href="{{ asset('css/vendor/apexcharts.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/vendor/datepicker.min.css') }}">
@@ -35,8 +37,8 @@
 
 </head>
 
-<body class=" bg-white [&.dark]:bg-main-dark font-jost relative text-[15px] font-normal leading-[1.5] m-0 p-0">  
-    @include('shield.partials.aside-menu') 
+<body class=" bg-white [&.dark]:bg-main-dark font-jost relative text-[15px] font-normal leading-[1.5] m-0 p-0">
+    @include('shield.partials.aside-menu')
 
        <!-- Wrapping Content -->
    <div class="relative flex flex-col flex-1 xl:ps-[280px] xl:[&.expanded]:ps-[80px] xl:[&.TopExpanded]:ps-[0px] !transition-all !duration-[0.2s] ease-linear delay-[0s] bg-normalBG dark:bg-main-dark" id="content">
@@ -56,6 +58,7 @@
     @stack('modals')
 
     @livewireScripts
+    @notifyJs
 
     <!-- Preloader -->
     {{-- <div class="preloader fixed w-full h-full z-[9999] flex items-center justify-center top-0 bg-white dark:bg-black">
