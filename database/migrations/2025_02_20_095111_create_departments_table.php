@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('intakes', function (Blueprint $table) {
+        Schema::create('departments', function (Blueprint $table) {
             $table->id();
-            $table->string('intake_name');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->string('status')->default('open');
+            $table->string('title');
+            $table->string('subtitle')->nullable();
+            $table->text('description');
+            $table->string('icon')->nullable();
+            $table->text('embedded_link')->nullable();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('intakes');
+        Schema::dropIfExists('departments');
     }
 };
