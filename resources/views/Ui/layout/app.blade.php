@@ -1,49 +1,56 @@
 <!DOCTYPE html>
-    <html class="h-full" x-data lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" x-data>
 
-        <title>{{ config('app.name', 'DevKit') }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <title>{{ config('app.name', 'DevKit') }}</title>
+    {{-- Favicon --}}
+    {{-- @if ($favicon)
+        <link rel="shortcut icon" href="{{ Storage::url($favicon) }}" type="image/x-icon">
+    @endif --}}
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+    <!-- Styles -->
+    @livewireStyles
 
-        <!-- Styles -->
-        @livewireStyles
+    <!-- Scripts -->
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @notifyCss
+</head>
 
-                <!-- Scripts -->
-                @vite(['resources/css/app.css', 'resources/js/app.js'])
-        @notifyCss
-    </head>
-    <body class="font-sans antialiased font-nunito text-base text-black dark:text-white dark:bg-slate-900">
-        <x-banner />
+{{-- @livewire('ui.head') --}}
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('ui.navigation-menu')
+<body class="font-sans antialiased font-nunito text-base text-black dark:text-white dark:bg-slate-900">
+    <x-banner />
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+    <div class="w-full overflow-x-hidden">
+        @livewire('ui.navigation-menu')
 
-            <main>
-                @yield('content')
-            </main>
-        </div>
+        <!-- Page Heading -->
+        @if (isset($header))
+            <header class="bg-white shadow">
+                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                    {{ $header }}
+                </div>
+            </header>
+        @endif
 
-        @stack('modals')
+        <main>
+            @yield('content')
+        </main>
+    </div>
+
+    @stack('modals')
     <!-- Include the Livewire Footer -->
     @livewire('ui.footer')
-        @livewireScripts
-        @notifyJs
-        @livewireScriptConfig
-    </body>
+    @livewireScripts
+    @notifyJs
+    @livewireScriptConfig
+</body>
+
 </html>
